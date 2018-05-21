@@ -15,6 +15,6 @@ public class BoardController {
 
     @GetMapping("/boards")
     public List<BoardDto> getBoards(){
-        return boardService.findBoards();
+        return boardService.getAllBoards();
     }
 }

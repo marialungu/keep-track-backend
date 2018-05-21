@@ -2,29 +2,24 @@ package com.keeptrack.service;
 
 import com.keeptrack.dto.BoardDto;
 import com.keeptrack.dto.BoardDtoTransformer;
-import com.keeptrack.entity.Board;
 import com.keeptrack.repository.BoardRepository;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 public class BoardService {
+    @Autowired
     BoardRepository boardRepository;
+
+    @Autowired
     BoardDtoTransformer boardDtoTransformer;
 
-    public List<BoardDto> findBoards() {
-        BoardDto boardDto;
-        List<BoardDto> boardDtoList = new ArrayList<>();
-        List<Board> boardList = boardRepository.findAll();
-
-        for(Board board : boardList) {
-            boardDto = boardDtoTransformer.transform(board);
-            boardDtoList.add(boardDto);
-        }
-        return boardDtoList;
+    public List<BoardDto> getAllBoards() {
+        return boardRepository.findAll().stream()
+                .map( board -> boardDtoTransformer.transform(board))
+                .collect(Collectors.toList());
     }
 }

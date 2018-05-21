@@ -19,9 +19,6 @@ public class Note {
     @Column (name = "n_name")
     private String noteName;
 
-    @Column (name = "n_checked")
-    private Boolean noteChecked;
-
     @Column (name = "n_content")
     private String noteContent;
 
