@@ -18,11 +18,9 @@ public class NoteController {
         return noteService.getAllNotes();
     }
 
-    @DeleteMapping("/delete")
+    @PostMapping("/delete")
     public void deleteNote(@RequestBody Long noteId) {
+        System.out.println(noteId);
         noteService.deleteNote(noteId);
     }
-
-
-
 }

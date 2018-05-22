@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "NOTES")
@@ -25,6 +27,10 @@ public class Note {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "b_id")
     private Board board;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "note", cascade ={CascadeType.ALL}, orphanRemoval = true)
+    private Set<NoteItem> items;
 
     public Board getBoard() {
         return board;

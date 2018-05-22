@@ -1,12 +1,14 @@
 package com.keeptrack.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "BOARDS")
@@ -28,7 +30,8 @@ public class Board {
     @Column(name = "b_u_id")
     private String userId;
 
-    @OneToMany(mappedBy = "board")
+    @JsonIgnore
+    @OneToMany(mappedBy = "board",cascade ={CascadeType.ALL}, orphanRemoval = true)
     private List<Note> notes;
 
     public Long getBoardId() {
