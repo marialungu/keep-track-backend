@@ -1,20 +1,23 @@
 package com.keeptrack.dto;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.keeptrack.entity.NoteItem;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class NoteItemTransformer {
-    public List<NoteItemDto> transform(String input){
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.readValue(input, new TypeReference<List<NoteItemDto>>(){});
-        } catch (IOException e) {
-            return null;
-        }
+    public NoteItemDto transform(NoteItem noteItem){
+        return NoteItemDto.builder()
+                .itemId(noteItem.getItemId())
+                .isNote(noteItem.getIsNote())
+                .checked(noteItem.getChecked())
+                .text(noteItem.getText())
+                .build();
+    }
+
+    public List<NoteItemDto> listTransform(List<NoteItem> items){
+        return items.stream().map(this::transform).collect(Collectors.toList());
     }
 }

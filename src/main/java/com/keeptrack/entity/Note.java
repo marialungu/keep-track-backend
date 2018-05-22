@@ -1,13 +1,12 @@
 package com.keeptrack.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "NOTES")
 public class Note {
@@ -19,16 +18,27 @@ public class Note {
     @Column (name = "n_name")
     private String noteName;
 
-    @Column (name = "n_content")
-    private String noteContent;
-
     @Column (name = "n_created_at")
     private Date noteCreatedAt;
 
-    @Column (name = "n_b_id", insertable = false, updatable = false)
-    private Long boardId;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name ="n_b_id")
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "b_id")
     private Board board;
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public Long getNoteId() {
+        return noteId;
+    }
+
+    public String getNoteName() {
+        return noteName;
+    }
+
+    public Date getNoteCreatedAt() {
+        return noteCreatedAt;
+    }
 }

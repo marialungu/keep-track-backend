@@ -8,7 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class NoteItemDto {
-    private Boolean isNote;
-    private Boolean checked;
+    private Long itemId;
+    private Long isNote;
+    private String checked;
     private String text;
 }

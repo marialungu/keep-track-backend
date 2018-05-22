@@ -8,8 +8,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "BOARDS")
 public class Board {
@@ -30,6 +28,26 @@ public class Board {
     @Column(name = "b_u_id")
     private String userId;
 
-    @OneToMany(mappedBy = "boardId")
+    @OneToMany(mappedBy = "board")
     private List<Note> notes;
+
+    public Long getBoardId() {
+        return boardId;
+    }
+
+    public String getBoardName() {
+        return boardName;
+    }
+
+    public String getBoardColor() {
+        return boardColor;
+    }
+
+    public Date getBoardCreatedAt() {
+        return boardCreatedAt;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
 }

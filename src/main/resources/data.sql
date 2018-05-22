@@ -1,11 +1,24 @@
-
 --INSERT INTO USERS (u_id, u_name, u_email, u_key, u_created_at) VALUES ('2', 'Nymeria Ghost', 'nymghost@gmail.com', 'asdfg12345', '2017-05-12');
-INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('2', 'Work', 'NULL', '2016-05-18', '2');
-INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('1', 'Default', 'NULL', '2016-05-02', '2');
-INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('4','Food', 'aqua', '2017-02-23', '2');
-INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('6', 'School', 'pink','2017-06-15', '2');
-INSERT INTO NOTES (n_id, n_b_id, n_created_at, n_name, n_content) VALUES ('2', '4', '2017-06-15', 'Grocery Shopping', '[{"text":"avocado","checked":false,"id":1},{"text":"pasta","checked":false,"id":2}]');
-INSERT INTO NOTES (n_id, n_b_id, n_created_at, n_name, n_content) VALUES ('3', '6', '2017-06-20', 'Study plan AOP exam', '[{"text":"get lectures","checked":false,"id":1}]');
-INSERT INTO NOTES (n_id, n_b_id, n_created_at, n_name, n_content) VALUES ('5', '6', '2017-06-17', 'Study plan DSA exam', '[{"text":"get lectures","checked":false,"id":1}]');
-INSERT INTO NOTES (n_id, n_b_id, n_created_at, n_name, n_content) VALUES ('6', '2', '2017-06-21', 'Tasks - 21.06', '[{"text":"hold meeting","checked":true,"id":1}, {"text":"finish controller","checked":false,"id":2}, {"text":"make view","checked":false,"id":3}]');
-INSERT INTO NOTES (n_id, n_b_id, n_created_at, n_name, n_content) VALUES ('7', '1', '2017-06-19', 'Party organization', '[]');
+INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('2', 'Work', '#A34866', '2016-05-18', '2');
+INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('1', 'Miscellaneous', 'null', '2016-05-02', '2');
+INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('4','Food', '#167D6D', '2017-02-23', '2');
+INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('6', 'School', '#FC6F73','2017-06-15', '2');
+
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('2', '2017-06-15', 'Grocery Shopping', '4' );
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('3', '2017-06-20', 'Important E-mail', '4');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('5', '2017-06-17', 'Study AI plan', '4');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('6', '2017-06-21', 'Tasks - 21.05', '4');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('7', '2017-06-19', 'Important thing', '4');
+
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('1', '0', 'false', 'avocado', '2');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('2', '0', 'true', 'pasta', '2');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('3', '0', 'false', 'cherry tomatoes', '2');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('4', '1', '', 'xyz@email.com', '3');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('5', '0', 'true', 'get lectures', '5');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('6', '0', 'false', 'study', '5');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('7', '0', 'true', 'hold meeting', '6');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('8', '0', 'false', 'implement push notifications', '6');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('9', '0', 'true', 'buy flowers', '6');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('10', '0', 'false', 'plan weekend trip', '6');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('11', '1', '', 'Remember important things', '7');
+INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('12', '1', '', 'and apply those important things', '7');
