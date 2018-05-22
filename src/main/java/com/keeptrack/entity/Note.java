@@ -14,7 +14,7 @@ import java.util.Set;
 public class Note {
     @Id
     @Column(name = "n_id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noteId;
 
     @Column (name = "n_name")

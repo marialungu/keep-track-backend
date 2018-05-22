@@ -12,7 +12,7 @@ public class NoteItem {
 
     @Id
     @Column(name = "i_id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemId;
 
     @Column (name = "i_isnote")

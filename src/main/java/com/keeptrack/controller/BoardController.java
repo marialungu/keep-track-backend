@@ -3,10 +3,7 @@ package com.keeptrack.controller;
 import com.keeptrack.dto.BoardDto;
 import com.keeptrack.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,10 @@ public class BoardController {
     @DeleteMapping("/deleteBoard")
     public void deleteBoard(@RequestBody Long boardId) {
         boardService.deleteBoard(boardId);
+    }
+
+    @PostMapping("/createBoard")
+    public void createBoard(@RequestBody BoardDto boardDto) {
+        boardService.createBoard(boardDto);
     }
 }
