@@ -8,19 +8,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/notes")
 public class NoteController {
     @Autowired
     NoteService noteService;
 
-    @GetMapping("/")
+    @GetMapping("/notes")
     public List<NoteDto> getNotes(){
         return noteService.getAllNotes();
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/deleteNote")
     public void deleteNote(@RequestBody Long noteId) {
-        System.out.println(noteId);
         noteService.deleteNote(noteId);
+    }
+
+    @DeleteMapping("/deleteItem")
+    public  void deleteItem(@RequestBody Long itemId){
+        noteService.deleteItem(itemId);
     }
 }

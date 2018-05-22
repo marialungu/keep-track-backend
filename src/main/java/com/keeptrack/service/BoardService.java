@@ -22,4 +22,8 @@ public class BoardService {
                 .map( board -> boardDtoTransformer.transform(board))
                 .collect(Collectors.toList());
     }
+
+    public void deleteBoard(Long boardId) {
+        boardRepository.deleteById(boardId);
+    }
 }

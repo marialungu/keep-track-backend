@@ -43,5 +43,9 @@ public class NoteService {
     public void deleteNote(Long noteId) {
         noteRepository.deleteById(noteId);
     }
+
+    public void deleteItem(Long itemId) {
+        noteItemRepository.deleteById(itemId);
+    }
 }
 

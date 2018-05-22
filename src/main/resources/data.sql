@@ -5,10 +5,10 @@ INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('4','Fo
 INSERT INTO BOARDS (b_id, b_name, b_color, b_created_at, b_u_id) VALUES ('6', 'School', '#FC6F73','2017-06-15', '2');
 
 INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('2', '2017-06-15', 'Grocery Shopping', '4' );
-INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('3', '2017-06-20', 'Important E-mail', '4');
-INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('5', '2017-06-17', 'Study AI plan', '4');
-INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('6', '2017-06-21', 'Tasks - 21.05', '4');
-INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('7', '2017-06-19', 'Important thing', '4');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('3', '2017-06-20', 'Important E-mail', '2');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('5', '2017-06-17', 'Study AI plan', '6');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('6', '2017-06-21', 'Tasks - 21.05', '2');
+INSERT INTO NOTES (n_id, n_created_at, n_name, b_id) VALUES ('7', '2017-06-19', 'Important thing', '1');
 
 INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('1', '0', 'false', 'avocado', '2');
 INSERT INTO ITEMS (i_id, i_isnote, i_checked, i_text, n_id) VALUES ('2', '0', 'true', 'pasta', '2');
