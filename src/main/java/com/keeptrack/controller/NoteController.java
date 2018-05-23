@@ -17,6 +17,11 @@ public class NoteController {
         return noteService.getAllNotes();
     }
 
+    @PostMapping("/createNote")
+    public void createNote(@RequestBody NoteDto noteDto) {
+        noteService.createNote(noteDto);
+    }
+
     @DeleteMapping("/deleteNote")
     public void deleteNote(@RequestBody Long noteId) {
         noteService.deleteNote(noteId);

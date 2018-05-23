@@ -2,8 +2,10 @@ package com.keeptrack.service;
 
 import com.keeptrack.dto.NoteDto;
 import com.keeptrack.dto.NoteDtoTransformer;
+import com.keeptrack.entity.Board;
 import com.keeptrack.entity.Note;
 import com.keeptrack.entity.NoteItem;
+import com.keeptrack.repository.BoardRepository;
 import com.keeptrack.repository.NoteItemRepository;
 import com.keeptrack.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class NoteService {
 
     @Autowired
     NoteItemRepository noteItemRepository;
+
+    @Autowired
+    BoardRepository boardRepository;
 
     public List<NoteDto> getAllNotes() {
 
@@ -46,6 +51,19 @@ public class NoteService {
 
     public void deleteItem(Long itemId) {
         noteItemRepository.deleteById(itemId);
+    }
+
+    public void createNote(NoteDto noteDto) {
+        Note note = new Note();
+        noteSetter(noteDto, note);
+        noteRepository.save(note);
+    }
+
+    private void noteSetter(NoteDto noteDto, Note note) {
+        note.setNoteName(noteDto.getNoteName());
+        note.setBoard(boardRepository.findByBoardId(noteDto.getBoardId()));
+        note.setNoteCreatedAt(noteDto.getNoteCreatedAt());
+       // note.setItems(noteDto.getNoteContent());
     }
 }
 
