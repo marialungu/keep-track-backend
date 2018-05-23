@@ -46,6 +46,15 @@ public class Board {
 //        return userId;
 //    }
 
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
     public void setBoardId(Long boardId) {
         this.boardId = boardId;
     }

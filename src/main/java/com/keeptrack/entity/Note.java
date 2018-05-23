@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+@Setter
 @Entity
 @Table(name = "NOTES")
 public class Note {
@@ -46,5 +47,21 @@ public class Note {
 
     public Date getNoteCreatedAt() {
         return noteCreatedAt;
+    }
+
+    public void setNoteId(Long noteId) {
+        this.noteId = noteId;
+    }
+
+    public void setNoteName(String noteName) {
+        this.noteName = noteName;
+    }
+
+    public void setNoteCreatedAt(Date noteCreatedAt) {
+        this.noteCreatedAt = noteCreatedAt;
+    }
+
+    public void setItems(Set<NoteItem> items) {
+        this.items = items;
     }
 }
