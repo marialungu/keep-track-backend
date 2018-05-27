@@ -1,15 +1,11 @@
 package com.keeptrack.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
-@Setter
 @Entity
 @Table(name = "NOTES")
 public class Note {
@@ -31,7 +27,7 @@ public class Note {
 
     @JsonIgnore
     @OneToMany(mappedBy = "note", cascade ={CascadeType.ALL}, orphanRemoval = true)
-    private Set<NoteItem> items;
+    private List<NoteItem> items;
 
     public Board getBoard() {
         return board;
@@ -61,7 +57,15 @@ public class Note {
         this.noteCreatedAt = noteCreatedAt;
     }
 
-    public void setItems(Set<NoteItem> items) {
+    public void setItems(List<NoteItem> items) {
         this.items = items;
+    }
+
+    public List<NoteItem> getItems() {
+        return items;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
     }
 }

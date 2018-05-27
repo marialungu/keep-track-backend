@@ -26,4 +26,9 @@ public class BoardController {
     public void createBoard(@RequestBody BoardDto boardDto) {
         boardService.createBoard(boardDto);
     }
+
+    @PutMapping("/updateBoard")
+    public void updateBoard(@RequestBody BoardDto boardDto){
+        boardService.updateBoard(boardDto);
+    }
 }

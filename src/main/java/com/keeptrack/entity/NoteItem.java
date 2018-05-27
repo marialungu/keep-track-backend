@@ -48,4 +48,20 @@ public class NoteItem {
     public Note getNote() {
         return note;
     }
+
+    public void setIsNote(Long isNote) {
+        this.isNote = isNote;
+    }
+
+    public void setChecked(String checked) {
+        this.checked = checked;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setNote(Note note) {
+        this.note = note;
+    }
 }
