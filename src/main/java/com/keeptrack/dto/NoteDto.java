@@ -19,4 +19,43 @@ public class NoteDto {
     private List<NoteItemDto> noteContent;
     private Date noteCreatedAt;
 
+    public Long getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(Long noteId) {
+        this.noteId = noteId;
+    }
+
+    public Long getBoardId() {
+        return boardId;
+    }
+
+    public void setBoardId(Long boardId) {
+        this.boardId = boardId;
+    }
+
+    public String getNoteName() {
+        return noteName;
+    }
+
+    public void setNoteName(String noteName) {
+        this.noteName = noteName;
+    }
+
+    public List<NoteItemDto> getNoteContent() {
+        return noteContent;
+    }
+
+    public void setNoteContent(List<NoteItemDto> noteContent) {
+        this.noteContent = noteContent;
+    }
+
+    public Date getNoteCreatedAt() {
+        return noteCreatedAt;
+    }
+
+    public void setNoteCreatedAt(Date noteCreatedAt) {
+        this.noteCreatedAt = noteCreatedAt;
+    }
 }
