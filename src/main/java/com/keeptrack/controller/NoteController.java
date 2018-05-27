@@ -14,31 +14,37 @@ public class NoteController {
     @Autowired
     NoteService noteService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/notes")
     public List<NoteDto> getNotes(){
         return noteService.getAllNotes();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/createNote")
     public void createNote(@RequestBody NoteDto noteDto) {
         noteService.createNote(noteDto);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/deleteNote")
     public void deleteNote(@RequestBody Long noteId) {
         noteService.deleteNote(noteId);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/deleteItem")
     public  void deleteItem(@RequestBody Long itemId){
         noteService.deleteItem(itemId);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/updateNote")
     public void updateNote(@RequestBody NoteDto noteDto) {
         noteService.updateNote(noteDto);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/updateNoteItem")
     public void updateNoteItem(@RequestBody NoteItemDto noteItemDto){
         noteService.updateNoteItem(noteItemDto);
